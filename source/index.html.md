@@ -16,6 +16,7 @@ includes:
   - product-variation
   - warehouse
   - inventory
+  - order
 
 search: true
 ---
