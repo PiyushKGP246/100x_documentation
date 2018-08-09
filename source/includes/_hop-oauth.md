@@ -42,7 +42,7 @@ Assume your client id was 55c277347770e02e65d4cd83, your client_secret was 12345
 > Example Request
 
 ```curl
-> curl https://merchant.wish.com/api/v2/oauth/access_token -d "client_id=55c277347770e02e65d4cd83&client_secret=123456789012345678901234&code=111222333444555666&redirect_uri=https%3A%2F%2Fexample.com&grant_type=authorization_code"
+> curl https://merchant.wish.com/api/oauth/access_token -d "client_id=55c277347770e02e65d4cd83&client_secret=123456789012345678901234&code=111222333444555666&redirect_uri=https%3A%2F%2Fexample.com&grant_type=authorization_code"
 ```
 
 > Example Response
@@ -62,7 +62,7 @@ Assume your client id was 55c277347770e02e65d4cd83, your client_secret was 12345
 
 To obtain an access token, your app must make the following request:
 
-`POST https://merchant.hopscotch.in/api/v2/oauth/access_token`
+`POST https://merchant.hopscotch.in/api/oauth/access_token`
 
 <b>Parameters</b>
 <table>
@@ -119,7 +119,7 @@ To make an authorized request, add the following to the request header:
 
 Alternatively, you can also add the access token as a parameter in the body of a request. For example, you can use the following endpoint to test your access token:
 
-`POST https://merchant.hopscotch.in/api/v2/auth_test`
+`POST https://merchant.hopscotch.in/api/auth_test`
 
 <b>Parameters</b>
 <table>
@@ -140,7 +140,7 @@ Assume your client id was 55c277347770e02e65d4cd83, your client_secret was 12345
 > Example Request
 
 ```curl
-> curl https://merchant.hopscotch.in/api/v2/oauth/refresh_token -d "client_id=55c277347770e02e65d4cd83&client_secret=123456789012345678901234&refresh_token=mju7nhy6bgt5vfr4cde3&grant_type=refresh_token"
+> curl https://merchant.hopscotch.in/api/oauth/refresh_token -d "client_id=55c277347770e02e65d4cd83&client_secret=123456789012345678901234&refresh_token=mju7nhy6bgt5vfr4cde3&grant_type=refresh_token"
 ```
 
 > Example Response
@@ -160,7 +160,7 @@ Assume your client id was 55c277347770e02e65d4cd83, your client_secret was 12345
 
 Access tokens expire after a certain period of time. In order to obtain a new access token without going through the full oAuth process again, your app can make the following request:
 
-`POST https://merchant.hopscotch.in/api/v2/oauth/refresh_token`
+`POST https://merchant.hopscotch.in/api/oauth/refresh_token`
 
 <b>Parameters</b>
 <table>

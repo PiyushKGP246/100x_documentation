@@ -179,17 +179,15 @@ If the request was successful the API will return an HTTP status code of 200 and
 
 ## List Brands
 > Example</br>
-Assume your access token is "an_example_access_token" . If you would like to view your brands updated after 2014-10-15 and before 2015-06-10 01:00:00 in groups of 2 and you would like to see the 10th group your parameters would be: </br></br>
+Assume your access token is "an_example_access_token" . If you would like to view your brands in groups of 2 and you would like to see the 10th group your parameters would be: </br></br>
 start = 20 </br>
 limit = 2 </br>
-since = 2014-10-15 </br>
-upto = 2015-06-10T01:00:00 </br>
 access_token = an_example_access_token
 
 > Example Request
 
 ```curl
-> curl "https://merchant.hopscotch.in/api/brand/multi-get?limit=2&start=20&since=2014-10-15&access_token=an_example_access_token"
+> curl "https://merchant.hopscotch.in/api/brand/multi-get?limit=2&start=20&access_token=an_example_access_token"
 ```
 
 > Example Response
@@ -221,18 +219,18 @@ access_token = an_example_access_token
 	'message': '',
 	'paging': 
 		{
-			'next': 'https://merchant.hopscotch.in/api/brand/multi-get?start=22&limit=2&since=2014-10-15&access_token=an_example_access_token',
-			'previous': 'https://merchant.hopscotch.in/api/brand/multi-get?start=18&limit=2&since=2014-10-15&access_token=an_example_access_token'
+			'next': 'https://merchant.hopscotch.in/api/brand/multi-get?start=22&limit=2&access_token=an_example_access_token',
+			'previous': 'https://merchant.hopscotch.in/api/brand/multi-get?start=18&limit=2&access_token=an_example_access_token'
 		}
 }	
 ```
 
 Returns a list of all your brands currently on the Hopscotch platform. If you have a high number of brands the response will be paginated. The response will contain the URL for fetching the next page of brands.</br>
 
-<b>HTTP Request Type: POST</b>
+<b>HTTP Request Type: GET</b>
 
 <b>Definition</b></br>
-POST https://merchant.hopscotch.in/api/brand/multi-get
+GET https://merchant.hopscotch.in/api/brand/multi-get
 
 <b>Parameters</b>
 <table>
@@ -254,29 +252,11 @@ POST https://merchant.hopscotch.in/api/brand/multi-get
 	</tr>
 	<tr>
 		<td>
-			<b>since</b>
-		</td>
-		<td>
-			<b>optional</b> A date/time string in the format YYYY-MM-DD or YYYY-MM-DDTHH:MM:SS. If a date or time is provided, only brands updated since the given date or time will be fetched. Default is to fetch all.
-		</td>
-	</tr>
-	<tr>
-		<td>
-			<b>upto</b>
-		</td>
-		<td>
-			<b>optional</b> A date/time string in the format YYYY-MM-DD or YYYY-MM-DDTHH:MM:SS. If a date or time is provided, only brands updated before the given date or time will be fetched. Default is to fetch all updated brands until now.
-		</td>
-	</tr>
-	<tr>
-		<td>
 			<b>show_rejected</b>
 		</td>
 		<td>
 			<b>optional</b> If specified to 'true', this API will return all brands including those inappropriate brands that were not approved.
 		</td>
-	</tr>
-	<tr>
 	</tr>
 </table>
 
