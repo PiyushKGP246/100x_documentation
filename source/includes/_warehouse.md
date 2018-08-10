@@ -368,4 +368,4 @@ GET https://merchant.hopscotch.in/api/warehouse/multi-get
 </table>
 
 <b>Returns</b></br>
-Response will contain a list of brand objects as well as a 'paging' field with paging options if needed.
+Response will contain a list of warehouse objects as well as a 'paging' field with paging options if needed.
