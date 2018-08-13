@@ -45,6 +45,113 @@ POST https://merchant.hopscotch.in/api/variant/update-inventory
 <b>Returns</b></br>
 A job_id will be returned if request is successful.
 
+## List stock
+> Example</br>
+Assume your access token is "an_example_access_token" . If you would like to view your product stock for brand 'Zara', skus 'SKU-1', 'SKU-2' of Product 'Dress' from warehouse id '1' in groups of 2 and you would like to see the 10th group your parameters would be: </br></br>
+skus = SKU-1,SKU-2 </br>
+brand = Zara </br>
+product = Dress </br>
+warehouse_id = 1 </br>
+start = 20 </br>
+limit = 2 </br>
+access_token = an_example_access_token
+
+> Example Request
+
+```curl
+> curl "https://merchant.hopscotch.in/api/stock/multi-get?skus=SKU-1,SKU-2&brand=Zara&product=Dress&warehouse_id=1&limit=2&start=20&access_token=an_example_access_token"
+```
+
+> Example Response
+
+```json
+{
+	'code': 0,
+	'data': {
+			"inventory": [
+			{
+				"sku": "SKU-1",
+				"stock": 25,
+				"warehouse_id": 1
+			},
+			{
+				"sku": "SKU-2",
+				"stock": 50,
+				"warehouse_id": 1
+			}
+		]
+	},
+	'message': '',
+	'paging': 
+		{
+			'next': 'https://merchant.hopscotch.in/api/stock/multi-get?brand=Zara&product=Dress&warehouse_id=1&start=22&limit=2&access_token=an_example_access_token',
+			'previous': 'https://merchant.hopscotch.in/api/stock/multi-get?brand=Zara&product=Dress&warehouse_id=1&start=18&limit=2&access_token=an_example_access_token'
+		}
+}	
+```
+
+Returns a list of all product variation stock. If you have a high number of skus the response will be paginated. The response will contain the URL for fetching the next page of inventory.</br>
+
+<b>HTTP Request Type: GET</b>
+
+<b>Definition</b></br>
+GET https://merchant.hopscotch.in/api/stock/multi-get
+
+<b>Parameters</b>
+<table>
+	<tr>
+		<td>
+			<b>brand</b>
+		</td>
+		<td>
+			<b>optional</b> to fetch inventory for the requested brand.
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<b>sku</b>
+		</td>
+		<td>
+			<b>optional</b> list of comma separated skus
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<b>product_id</b>
+		</td>
+		<td>
+			<b>optional</b> to fetch inventory of all the skus in requested product id 
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<b>warehouse_id</b>
+		</td>
+		<td>
+			<b>optional</b> all the skus present in requested warehouse.  If not specified, it will return DEFAULT warehouse inventory.
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<b>start</b>
+		</td>
+		<td>
+			<b>optional</b> An offset into the list of returned items. Use 0 to start at the beginning. The API will return the requested number of items starting at this offset. Default to 0 if not supplied
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<b>limit</b>
+		</td>
+		<td>
+			<b>optional</b> A limit on the number of warehouses that can be returned. Limit can range from 1 to 250 items and the default is 50
+		</td>
+	</tr>
+</table>
+
+<b>Returns</b></br>
+Response will contain a list of inventory objects as well as a 'paging' field with paging options if needed.
+
 <h2 id="bulk-inventory-update-job-status"> Get Job Status of Variation Bulk Inventory Update </h2>
 > Example </br>
 Assume your access token is "an_example_access_token". Suppose you want to check the status of your bulk inventory update for product variations with job_id "59e00339b2d5b8367ac3e8bd": </br> </br>
@@ -272,110 +379,3 @@ GET https://merchant.hopscotch.in/api/variant/get-bulk-inventory-update-job-fail
 		</td>
 	</tr>
 </table>
-
-## List stock
-> Example</br>
-Assume your access token is "an_example_access_token" . If you would like to view your product stock for brand 'Zara', skus 'SKU-1', 'SKU-2' of Product 'Dress' from warehouse id '1' in groups of 2 and you would like to see the 10th group your parameters would be: </br></br>
-skus = SKU-1,SKU-2 </br>
-brand = Zara </br>
-product = Dress </br>
-warehouse_id = 1 </br>
-start = 20 </br>
-limit = 2 </br>
-access_token = an_example_access_token
-
-> Example Request
-
-```curl
-> curl "https://merchant.hopscotch.in/api/stock/multi-get?skus=SKU-1,SKU-2&brand=Zara&product=Dress&warehouse_id=1&limit=2&start=20&access_token=an_example_access_token"
-```
-
-> Example Response
-
-```json
-{
-	'code': 0,
-	'data': {
-			"inventory": [
-			{
-				"sku": "SKU-1",
-				"stock": 25,
-				"warehouse_id": 1
-			},
-			{
-				"sku": "SKU-2",
-				"stock": 50,
-				"warehouse_id": 1
-			}
-		]
-	},
-	'message': '',
-	'paging': 
-		{
-			'next': 'https://merchant.hopscotch.in/api/stock/multi-get?brand=Zara&product=Dress&warehouse_id=1&start=22&limit=2&access_token=an_example_access_token',
-			'previous': 'https://merchant.hopscotch.in/api/stock/multi-get?brand=Zara&product=Dress&warehouse_id=1&start=18&limit=2&access_token=an_example_access_token'
-		}
-}	
-```
-
-Returns a list of all product variation stock. If you have a high number of skus the response will be paginated. The response will contain the URL for fetching the next page of inventory.</br>
-
-<b>HTTP Request Type: GET</b>
-
-<b>Definition</b></br>
-GET https://merchant.hopscotch.in/api/stock/multi-get
-
-<b>Parameters</b>
-<table>
-	<tr>
-		<td>
-			<b>brand</b>
-		</td>
-		<td>
-			<b>optional</b> to fetch inventory for the requested brand.
-		</td>
-	</tr>
-	<tr>
-		<td>
-			<b>sku</b>
-		</td>
-		<td>
-			<b>optional</b> list of comma separated skus
-		</td>
-	</tr>
-	<tr>
-		<td>
-			<b>product_id</b>
-		</td>
-		<td>
-			<b>optional</b> to fetch inventory of all the skus in requested product id 
-		</td>
-	</tr>
-	<tr>
-		<td>
-			<b>warehouse_id</b>
-		</td>
-		<td>
-			<b>optional</b> all the skus present in requested warehouse.  If not specified, it will return DEFAULT warehouse inventory.
-		</td>
-	</tr>
-	<tr>
-		<td>
-			<b>start</b>
-		</td>
-		<td>
-			<b>optional</b> An offset into the list of returned items. Use 0 to start at the beginning. The API will return the requested number of items starting at this offset. Default to 0 if not supplied
-		</td>
-	</tr>
-	<tr>
-		<td>
-			<b>limit</b>
-		</td>
-		<td>
-			<b>optional</b> A limit on the number of warehouses that can be returned. Limit can range from 1 to 250 items and the default is 50
-		</td>
-	</tr>
-</table>
-
-<b>Returns</b></br>
-Response will contain a list of inventory objects as well as a 'paging' field with paging options if needed.

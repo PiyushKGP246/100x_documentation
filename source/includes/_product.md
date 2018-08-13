@@ -7,7 +7,7 @@ With this API you can create and update products. You can also retrieve details 
 
 ## Create a Product
 > Example</br>
-Lets say you had product named "red shoe" with shipping of $10.00. If you want the description to be "this is a cool shoe". You want "http://i.imgur.com/Q1a32kD.jpg" to be the main image for your product and have additional imge "http://i.imgur.com/Cxagv.jpg" and "http://i.imgur.com/LuPSxBM.jpg". Assume your access token is "an_example_access_token" </br></br
+Lets say you had product named "red shoe" with shipping of $10.00. If you want the description to be "this is a cool shoe". You want "http://i.imgur.com/Q1a32kD.jpg" to be the main image for your product and have additional imge "http://i.imgur.com/Cxagv.jpg" and "http://i.imgur.com/LuPSxBM.jpg". Assume your access token is "an_example_access_token" </br></br>
 name = red shoe </br>
 shipping = 10 </br>
 description = this is a cool shoe </br>
@@ -379,7 +379,7 @@ Lets say you want to delete a product with id '10101'
 > Example Request
 
 ```curl
-> curl -X DELETE 'https://merchant.hopscotch.in/api/product/{product_id}'
+> curl -X DELETE 'https://merchant.hopscotch.in/api/product/10101'
 ```
 
 > Example Response
@@ -393,6 +393,7 @@ Lets say you want to delete a product with id '10101'
 ```
 
 Deletes the specified product. </br>
+
 <b>HTTP Request Type: DELETE</b>
 
 <b>Definition</b> </br>
