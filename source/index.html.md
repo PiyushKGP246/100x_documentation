@@ -12,6 +12,8 @@ includes:
   - api-reference
   - hop-oauth
   - brand
+  - category
+  - sub-category
   - product
   - product-variation
   - warehouse

@@ -50,9 +50,7 @@ Description of the product variation.
 
 ## Delete a Product Variation
 
-## Enable a Product Variation
-
-## Disable a Product Variation
+## Enable/Disable a Product Variation
 
 ## Retrieve a Product Variation
 

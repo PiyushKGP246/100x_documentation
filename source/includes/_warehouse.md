@@ -223,7 +223,7 @@ Lets say you want to delete warehouse with warehouse_id '1'
 > Example Request
 
 ```curl
-> curl -X DELETE 'https://merchant.hopscotch.in/api/warehouse/warehouse_id'
+> curl -X DELETE 'https://merchant.hopscotch.in/api/warehouse/{warehouse_id}'
 ```
 
 > Example Response
@@ -240,7 +240,7 @@ Deletes the specified warehouse. </br>
 <b>HTTP Request Type: DELETE</b>
 
 <b>Definition</b> </br>
-DELETE https://merchant.hopscotch.in/api/warehouse/warehouse_id
+DELETE https://merchant.hopscotch.in/api/warehouse/{warehouse_id}
 
 <b>Returns</b></br>
 If the request was successful the API will return an HTTP status code of 200 and a status code of 0.

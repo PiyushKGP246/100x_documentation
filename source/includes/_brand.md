@@ -179,7 +179,7 @@ If the request was successful the API will return an HTTP status code of 200 and
 
 ## List Brands
 > Example</br>
-Assume your access token is "an_example_access_token" . If you would like to view your brands in groups of 2 and you would like to see the 10th group your parameters would be: </br></br>
+Assume your access token is "an_example_access_token". If you would like to view your brands in groups of 2 and you would like to see the 10th group your parameters would be: </br></br>
 start = 20 </br>
 limit = 2 </br>
 access_token = an_example_access_token
