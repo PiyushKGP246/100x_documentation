@@ -4,7 +4,7 @@ The product variation entity represents a SKU that is for sale. It has a price, 
 
 With this API you can create and update product variations. You can also retrieve details about specific product variations or page through all your product variations.
 
-<b>Attributes</b>
+<!-- <b>Attributes</b> -->
 
 ## Create a Product Variation
 > Example</br>

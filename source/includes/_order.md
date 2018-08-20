@@ -6,8 +6,7 @@ With this API you can fetch order that require fulfillment and orders that have 
 <b>Order State</b> </br>
 Orders can be in several different states depending on what has happened. State 'APPROVED' means that the order is ready to ship. State 'SHIPPED' means that the order has been marked as shipped by you. State 'REFUNDED' means that the order has been refunded to the user and should not be fulfilled. State 'REQUIRE_REVIEW' means that the order is under review for fraudulent activity and should not be fulfilled.
 
-<b>Attributes</b>
-
+<!-- <b>Attributes</b> -->
 
 ## Retrieve an Order
 > Example</br>

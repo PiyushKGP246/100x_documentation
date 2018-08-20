@@ -3,7 +3,7 @@ The product entity represents an item that is for sale on Hopscotch. Each produc
 
 With this API you can create and update products. You can also retrieve details about specific product or page through all your products.
 
-<b>Attributes</b>
+<!-- <b>Attributes</b> -->
 
 ## Create a Product
 > Example</br>
