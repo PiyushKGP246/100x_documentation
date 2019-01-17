@@ -7,8 +7,10 @@ With this API you can create and update products. You can also retrieve details 
 
 ## Create a Product
 > Example</br>
-Lets say you had product named "red shoe" with shipping of $10.00. If you want the description to be "this is a cool shoe". You want "http://i.imgur.com/Q1a32kD.jpg" to be the main image for your product and have additional imge "http://i.imgur.com/Cxagv.jpg" and "http://i.imgur.com/LuPSxBM.jpg". Assume your access token is "an_example_access_token" </br></br>
+Lets say you had product named "red shoe" with a SKU of red-shoe-11 and shipping of $10.00. If you want the description to be "this is a cool shoe". You want "http://i.imgur.com/Q1a32kD.jpg" to be the main image for your product and have additional imge "http://i.imgur.com/Cxagv.jpg" and "http://i.imgur.com/LuPSxBM.jpg". Assume your access token is "an_example_access_token" </br></br>
 name = red shoe </br>
+parent_sku = red-shoe </br>
+sku = red-shoe-11 </br>
 shipping = 10 </br>
 description = this is a cool shoe </br>
 main_image = http://i.imgur.com/Q1a32kD.jpg </br>
@@ -18,7 +20,7 @@ access_token = an_example_access_token
 > Example Request
 
 ```curl
-> curl https://merchant.hopscotch.in/api/product/add -d "main_image=http://i.imgur.com/Q1a32kD.jpg&name=red shoe&description=this is a cool shoe&shipping=10&extra_images=http://i.imgur.com/Q1a32kD.jpg|http://i.imgur.com/Cxagv.jpg&access_token=an_example_access_token"
+> curl https://merchant.hopscotch.in/api/product/add -d "main_image=http://i.imgur.com/Q1a32kD.jpg&name=red shoe&description=this is a cool shoe&sku=red-shoe-11&shipping=10&extra_images=http://i.imgur.com/Q1a32kD.jpg|http://i.imgur.com/Cxagv.jpg&access_token=an_example_access_token"
 
 ```
 
@@ -84,6 +86,14 @@ POST https://merchant.hopscotch.in/api/product/add
 			Unacceptable: !棉质外套 </br>
 			Unacceptable: 棉 </br>
 			Unacceptable: Name that is longer than 200 characters
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<b>sku</b>
+		</td>
+		<td>
+			The unique identifier that your system uses to recognize this product
 		</td>
 	</tr>
 	<tr>
@@ -242,6 +252,22 @@ POST https://merchant.hopscotch.in/api/product/add
 		</td>
 		<td>
 			<b>optional,</b> year of manufacture in 20XX format. 
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<b>parent_sku</b>
+		</td>
+		<td>
+			<b>optional</b> When defining a variant of a product we must know which product to attach the variation to. parent_sku is the unique id of the product that you can use later when using the add product variation API.
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<b>brand</b>
+		</td>
+		<td>
+			<b>optional</b> Brand or manufacturer of your product
 		</td>
 	</tr>
 	<tr>

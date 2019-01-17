@@ -400,6 +400,14 @@ POST https://merchant.hopscotch.in/api/variant/update
 	</tr>
 	<tr>
 		<td>
+			<b>price</b>
+		</td>
+		<td>
+			The price of the variation when the user purchases one, max 100,000
+		</td>
+	</tr>
+	<tr>
+		<td>
 			<b>main_image</b>
 		</td>
 		<td>
