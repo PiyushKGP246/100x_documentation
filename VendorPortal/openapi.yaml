@@ -1,0 +1,142 @@
+---
+openapi: 3.0.2
+info:
+  title: Vendor Portal
+  description: Vendor Portal APIs exposed from Hopscotch's end
+  version: 1.0.0
+paths:
+  /brand:
+    summary: Path used to manage the list of BrandForms.
+    description: The REST endpoint/path used to list and create zero or more `BrandForm`
+      entities.  This path contains a `GET` and `POST` operation to perform the list
+      and create tasks, respectively.
+    get:
+      summary: List All BrandForms
+      description: Gets a list of all `BrandForm` entities.
+      operationId: getBrandForms
+      parameters:
+      - name: brand_id
+        in: query
+        description: To find vendor by brand_id
+        required: false
+        schema:
+          type: integer
+      - name: brand_name
+        in: query
+        description: To find vendor by brand_name
+        required: false
+        schema:
+          type: string
+      responses:
+        200:
+          description: Successful response - returns an array of `BrandForm` entities.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/BrandForm'
+              examples:
+                Get All BrandForm Example:
+                  value:
+                    data:
+                      totalRecords: 5381
+                      records:
+                      - id: 15717
+                        name: Oui Oui
+                        description: "<p>Oui\r\nOui creates clothes for all the little\
+                          \ ladies out there! Our collection is made\r\nusing pure\
+                          \ cotton with vibrant colours and peppy patterns. So yes\
+                          \ this little\r\nMinnie me can surely follow her mom’s footsteps.\
+                          \ Playdates ,birthday parties\r\nand outings, we have clothes\
+                          \ for all the occasions.<br></p>"
+                        imageId: d0022d59-40dd-4c68-b10b-2e6f7d21e182
+                        shortName: Oui
+                      - id: 15716
+                        name: Jr Diamond
+                        description: <p>Jr Diamond<br></p>
+                        shortName: JRD
+                      - id: 15715
+                        name: 'WAABI - SAABI '
+                        description: "Waabi-Saabi represents a comprehensive Japanese\
+                          \ world view or aesthetic \r\ncentered on the acceptance\
+                          \ of transience and imperfection. The aesthetic\r\n is sometimes\
+                          \ described as one of beauty that is \"imperfect, \r\nimpermanent,\
+                          \ and\r\n\r\n                            incomplete\". Characteristics\
+                          \ of the \r\nWaabi-Saabi aesthetic include asymmetry, asperity,\
+                          \ simplicity, economy, \r\nausterity, modesty, intimacy\
+                          \ and appreciation of the ingenuous integrity\r\n of natural\
+                          \ objects and processes."
+                        imageId: c6fce149-3ffe-44a6-ba57-42b596812c9f
+                        shortName: WAS
+                      - id: 15714
+                        name: Colorful night
+                        description: <p>colorful</p>
+                        shortName: COLNT
+                      - id: 15713
+                        name: Rurality
+                        description: <p>Rurality<br></p><p>Espadrille</p>
+                        shortName: RURA
+                      - id: 15712
+                        name: qiangxin
+                        description: <p>National style<br></p>
+                        shortName: QX
+                      - id: 15711
+                        name: Manke
+                        description: <p>Delicate<br></p>
+                        shortName: MANKE
+                      - id: 15710
+                        name: AMAIRAA
+                        description: <p><p>We are an exclusive ethnic wear brand for
+                          little ones. Each outfit of ours is designed stitched with
+                          threads of love.</p><p>We focus on creating comfort ethnic
+                          clothing for little fashionistas, so they shine bright always!</p><p>Our
+                          unique designs and soft fabrics are loved by all mommies!</p><p>We
+                          believe in spreading AMAIRAAness with love!</p></p>
+                        imageId: 81523a26-e76d-42c3-a9a2-a48fcf558f24
+                        shortName: AMRA
+                      - id: 15709
+                        name: Piccolo Sleepwear
+                        description: <p>Appearl</p>
+                        shortName: PCS
+                      - id: 15708
+                        name: Lost & Found
+                        shortName: LLFT
+                      pageNo: 1
+                      pageSize: 10
+                      totalPages: 539
+                      topPageNo: 1
+                      previousPageNo: 1
+                      nextPageNo: 2
+                      bottomPageNo: 539
+    post:
+      summary: Create a BrandForm
+      description: Creates a new instance of a `BrandForm`.
+      operationId: createBrandForm
+      requestBody:
+        description: A new `BrandForm` to be created.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BrandForm'
+            examples:
+              Example To create Vendor from vendor form:
+                value: "           {\n               \"name\":\"vendor xyz\",\n  \
+                  \              \"description\":\"vendor Creation Test\",\n     \
+                  \           \"imageId\":null,\n                \"shortName\":\"\
+                  vendor xyz\"\n               \n           }"
+        required: true
+      responses:
+        200:
+          description: Successful response.
+          content:
+            application/json:
+              examples:
+                vendor creation response:
+                  value:
+                    data:
+                      resourceId: 123
+components:
+  schemas:
+    BrandForm:
+      type: object
